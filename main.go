@@ -35,6 +35,7 @@ func sse(c *gin.Context) {
 			case <-timer.C:
 				msg := "测试msg"
 				c.SSEvent("message", msg)
+				c.SSEvent("msg", msg)
 				timer.Reset(2 * time.Second) // 上一个执行完毕重新设置
 				return true
 			}
